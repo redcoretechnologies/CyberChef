@@ -4,7 +4,7 @@ services:
   cyberchef:
     build: .
     ports:
-      - "8080:80"
+      - "8081:80"
     networks:
       - isolated_net
     dns:
