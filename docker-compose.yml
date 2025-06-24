@@ -5,12 +5,9 @@ services:
     build: .
     ports:
       - "8081:80"
-    networks:
-      - isolated_net
+    cap_add:
+      - NET_ADMIN
+    command: >
+      sh -c "ip route del default && nginx -g 'daemon off;'"
     dns:
-      - 127.0.0.1
-
-networks:
-  isolated_net:
-    driver: bridge
-    internal: true
+      - 127.0.0.1  # optional, DNS block
