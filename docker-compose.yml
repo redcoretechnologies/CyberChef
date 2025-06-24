@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  cyberchef:
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      - isolated_net
+    dns:
+      - 127.0.0.1
+
+networks:
+  isolated_net:
+    driver: bridge
+    internal: true
